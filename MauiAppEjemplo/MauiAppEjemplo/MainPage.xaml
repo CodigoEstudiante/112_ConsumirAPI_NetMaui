@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEjemplo.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,30"
+            VerticalOptions="Start">
+
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Obtener Personajes"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+
+            <ActivityIndicator x:Name="loading" HeightRequest="30" Color="Blue" IsRunning="True" 
+                               IsVisible="false"/>
+
+            <ListView x:Name="listViewPersonajes">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Image Source="{Binding image}" WidthRequest="50" 
+                                       HeightRequest="50" Aspect="AspectFill"/>
+                                <Label Text="{Binding name}" VerticalTextAlignment="Center" Margin="10,0,0,0"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
